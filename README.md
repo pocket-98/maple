@@ -5,7 +5,7 @@ A Web Interface to Maplesoft Maple
 * PHP interfaces between the script entered and cmaple, a command line interface for Maple.
 * Additionally the script and its output are parsed and merged together to show the direct effects of each entered command.
 * Example Maple scripts based on my Calculus 3 curriculum are included to show some of Maple's basic and sophisticated tools.
-* <a href="https://pavandayal.com/maple/" target="_blank">See it in action</a>
+* [See it in action](https://pavandayal.com/maple/){:target="_blank"}
 
 ## Notice
 * The server hosting this website must have maple installed and the path to cmaple must be included in the PATH. Also if the server is running Windows, then the php code that executes the shell script and the shell script itself will need to be modified to Windows Batch.
