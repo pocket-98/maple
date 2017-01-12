@@ -1,0 +1,8 @@
+with(linalg):
+F:=[2*x*y,x^2+2*y*z,y^2]:
+
+curlF:=curl(F,[x,y,z]);
+
+f:=int(F[1],x):
+f:=f+int(F[2]-diff(f,y),y):
+f:=f+int(F[3]-diff(f,z),z);

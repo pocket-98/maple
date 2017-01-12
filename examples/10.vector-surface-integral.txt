@@ -1,0 +1,13 @@
+with(linalg):
+
+r:=[u*cos(t),u*sin(t),1-u*cos(t)-u*sin(t)]:
+ru:=diff(r,u):
+rt:=diff(r,t):
+
+dS:=simplify(crossprod(ru,rt));
+
+F:=[x^2*z,x*y^2,z^2]:
+F:=simplify(eval(eval(eval(F,x=r[1]),y=r[2]),z=r[3]));
+
+a:=int(int(innerprod(F,dS),u=0..3),t=0..2*Pi);
+evalf(a,12);

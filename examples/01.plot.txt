@@ -1,0 +1,8 @@
+f:=x^2;
+xrange:=x=-4..4;
+
+plt:=plot(f,xrange):
+plt;
+
+with(plottools):
+exportplot(\"plots/plot.jpg\",plt);

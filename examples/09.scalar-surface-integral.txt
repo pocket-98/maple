@@ -1,0 +1,14 @@
+with(linalg):
+
+r:=[u,v,1+2*u+3*v]:
+ru:=diff(r,u):
+rv:=diff(r,v):
+
+dS:=crossprod(ru,rv):
+dS:=simplify(sqrt(innerprod(dS,dS)));
+
+f:=x^2*y*z:
+f:=eval(eval(eval(f,x=r[1]),y=r[2]),z=r[3]);
+
+a:=int(int(f*dS,v=0..2),u=0..3);
+evalf(a,12);
