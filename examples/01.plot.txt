@@ -5,4 +5,4 @@ plt:=plot(f,xrange):
 plt;
 
 with(plottools):
-exportplot(\"plots/plot.jpg\",plt);
+exportplot("plots/plot.jpg",plt);

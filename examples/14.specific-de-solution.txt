@@ -1,0 +1,13 @@
+y:=v(t):
+y1:=diff(y,t):
+y2:=diff(y1,t):
+
+de:=y2-3*y1+2*y=0:
+sol:=dsolve(de,y):
+v(t):=solve(sol,y);
+
+initial1:=eval(y,t=0)=4:
+initial2:=eval(y1,t=0)=2:
+C:=solve([initial1,initial2]);
+
+v(t):=eval(v(t),C);

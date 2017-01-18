@@ -1,0 +1,8 @@
+y:=v(t):
+y1:=diff(y,t):
+y2:=diff(y1,t):
+
+de:=y2-3*y1+2*y=0;
+sol:=dsolve(de,y);
+
+odetest(sol,de);

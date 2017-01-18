@@ -1,0 +1,13 @@
+y:=v(x):
+y1:=diff(y,x):
+
+de:=y1=-x/y:
+xrange:=x=-4..4:
+yrange:=y=-3..3:
+
+with(DEtools):
+p:=dfieldplot(de,y,xrange,yrange):
+p;
+
+with(plottools):
+exportplot("plots/field.jpg",p);

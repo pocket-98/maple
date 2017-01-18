@@ -24,7 +24,9 @@ for ($i = 1; $i <= count($names); $i++) {
 
   echo $spaces . "  $i: { name:" . '"' . $names[$i-1];
   echo '", ' . 'script:"';
-  echo str_replace("\n",'\n',file_get_contents("$file"));
+  $old = array("\n",'"');
+  $new = array('\n','\"');
+  echo str_replace($old, $new, file_get_contents("$file"));
   echo '" },';
 }
 
