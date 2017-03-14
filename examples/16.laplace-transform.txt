@@ -1,0 +1,4 @@
+f:=cos(2*t)+sin(2*t);
+
+with(inttrans):
+F:=laplace(f,t,s);

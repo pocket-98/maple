@@ -1,0 +1,4 @@
+F:=(s+2)/(s^2+4);
+
+with(inttrans):
+f:=invlaplace(F,s,t);
