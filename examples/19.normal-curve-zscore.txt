@@ -1,0 +1,9 @@
+A:=0.841344746068542948585232545632037922477913:
+
+mean:=5:
+std:=2:
+
+f:=1/sqrt(2*Pi)*exp(-t^2/2):
+
+z:=evalf(fsolve(int(f,t=-infinity..z)=A),50);
+x:=evalf(mean+std*z,50);

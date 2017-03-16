@@ -1,0 +1,8 @@
+a:=-infinity:
+b:=7:
+
+mean:=5:
+std:=2:
+
+f:=1/sqrt(2*Pi*std^2)*exp(-((t-mean)/std)^2/2):
+A:=evalf(int(f,t=a..b),50);
