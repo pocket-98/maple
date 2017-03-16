@@ -16,14 +16,14 @@
           <div class="col-xs-1 col-sm-2 col-md-3"></div>
           <div class="col-xs-10 col-sm-8 col-md-6">
             <form id="form" action="../" method="post">
-              <input type="hidden" name="input" value=<?php
+              <textarea name="input" style="display: none;"><?php
 if (isset($_GET['input']) && strlen($_GET['input']) > 0) {
   $input = $_GET['input'];
 } else {
   $input = $_POST['input'];
 }
-echo "'" . $input . "'";
-            ?>/>
+echo "" . $input . "";
+            ?></textarea>
             </form>
             <div class="button" onclick="document.getElementById('form').submit()">
               <div>Edit Script</div>
@@ -37,15 +37,33 @@ echo "'" . $input . "'";
 
 $inputs = explode(";", $input);
 $inputs2 = array();
+
 $inputstring = "";
+$s = "startstartstartstartstart;";
+$e = "endendendendend;";
+
+$loopLevel = 0;
+$loopContent = "";
+
 foreach($inputs as $line){
-  $line = str_replace(' ','',trim($line));
-//  $inputstring = $inputstring ."\"$line;\" ";
-  $inputstring .= "'$line;' ";
-  array_push($inputs2, $line);
+	if (strpos($line, " do") !== false) {
+		$loopLevel -= substr_count($line, "end do");
+		$loopLevel += substr_count(str_replace("end do","",$line), " do");
+
+		if (loopLevel == 0) {
+			$line = "$loopContent$line";
+			$loopContent = "";
+		}
+	}
+	if ($loopLevel == 0) {
+		$inputstring .= "$s$line;$e";
+		array_push($inputs2, $line);
+	} else {
+		$loopContent .= "$line;";
+	}
 }
 
-$output = shell_exec("./shell.sh $inputstring");
+$output = shell_exec("export HOME=/srv/http; echo '$inputstring' | /usr/local/bin/cmaple -q -T 15,200000 -t");
 $output2 = explode("\n", $output);
 $output3 = array();
 for($i = 0; $i < count($output2); $i++){
