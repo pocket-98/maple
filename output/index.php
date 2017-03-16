@@ -72,10 +72,10 @@ $output3 = array();
 for($i = 0; $i < count($output2); $i++){
   $item = $output2[$i];
   $next = $output2[$i+1];
-  if (strpos($item,"startstartstartstartstart") !== false) {
+  if (strpos($item,$s) !== false) {
     $part = array();
   }
-  if (strpos($next,"endendendendend") !== false) {
+  if (strpos($next,$e) !== false) {
     if (count($part) > 0) {
       array_push($output3, $part);
     }
