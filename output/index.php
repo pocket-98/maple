@@ -39,8 +39,8 @@ $inputs = explode(";",$input);
 $inputs2 = array();
 
 $inputstring = "";
-$s = "startstartstartstartstart;";
-$e = "endendendendend;";
+$s = "startstartstartstartstart";
+$e = "endendendendend";
 
 $loopLevel = 0;
 $loopContent = "";
@@ -57,7 +57,7 @@ foreach($inputs as $line){
   }
 
   if ($loopLevel == 0) {
-    $inputstring .= "$s$line;$e";
+    $inputstring .= "$s;$line;$e;";
     array_push($inputs2, $line);
   } else {
     $loopContent .= "$line;";
