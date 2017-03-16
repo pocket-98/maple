@@ -35,7 +35,7 @@ echo "" . $input . "";
 
 <?php
 
-$inputs = explode(";", $input);
+$inputs = explode(";", htmlEntities($input, ENT_QUOTES));
 $inputs2 = array();
 
 $inputstring = "";
