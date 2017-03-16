@@ -58,13 +58,13 @@ foreach($inputs as $line){
 
   if ($loopLevel == 0) {
     $inputstring .= "$s;$line;$e;";
-    array_push($inputs2, $line);
+    array_push($inputs2, trim($line));
   } else {
     $loopContent .= "$line;";
   }
 }
 
-$cmd = "export HOME=/srv/http; echo '$inputstring' | ";
+$cmd = "export HOME=/var/www; echo '$inputstring' | ";
 $cmd .= "/usr/local/bin/cmaple -q -T 15,200000 -t";
 $output = shell_exec($cmd);
 $output2 = explode("\n", $output);
