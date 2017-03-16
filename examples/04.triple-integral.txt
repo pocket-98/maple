@@ -1,6 +1,6 @@
-f := x*y;
-xrange := x=0 .. 2;
-yrange := y=0 .. 2*x;
-zrange := z=0 .. 1;
-F := int(int(int(f, zrange), yrange), xrange);
-evalf(F, 12);
+f:=x*y;
+xrange:=x=0..2;
+yrange:=y=0..2*x;
+zrange:=z=0..1;
+F:=int(f,[zrange,yrange,xrange]);
+evalf(F,20);

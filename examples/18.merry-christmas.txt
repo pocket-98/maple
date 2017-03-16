@@ -1,0 +1,16 @@
+randomize():
+r:=rand(0..5):
+print("merry christmas");
+
+for i from 0 to 11 do
+p:=0:
+
+for j from 0 to i-1 do
+p:=p+(1-floor(r()/5))*10^j:
+end do:
+
+p:=p+10^i:
+print(7*p);
+end do:
+
+print(1);

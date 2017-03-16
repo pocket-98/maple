@@ -10,4 +10,4 @@ plt2:=plot3d(s2,r=0..1,t=0..2*Pi):
 plt3:=plot3d(s3,k=0..1,t=0..2*Pi):
 
 plts:=display(plt1,plt2,plt3):
-exportplot("plots/plot.stl", plts);
+exportplot("plots/plot.stl",plts);
