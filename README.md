@@ -8,5 +8,5 @@ A Web Interface to Maplesoft Maple
 * [See it in action](https://pavandayal.com/maple/)
 
 ## Notice
-* The server hosting this website must have maple installed and the path to cmaple must be included in the PATH. Also if the server is running Windows, then the php code that executes the shell script and the shell script itself will need to be modified to Windows Batch.
+* The server hosting this website must have maple installed and the path to cmaple may need to be changed depending on your installation. Also if the server is running Windows, then the php code that executes the shell command will need to be modified for Windows.
 * In order for exporting plots to work, make a folder called 'plots' and make sure that the webserver has permission to write to that folder.
