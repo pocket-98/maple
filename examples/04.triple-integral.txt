@@ -1,6 +1,7 @@
 f:=x*y;
-xrange:=x=0..2;
-yrange:=y=0..2*x;
-zrange:=z=0..1;
-F:=int(f,[zrange,yrange,xrange]);
-evalf(F,20);
+
+xrange:=x=0..2:
+yrange:=y=0..2*x:
+zrange:=z=0..1:
+
+tripint:=int(f,[zrange,yrange,xrange]);

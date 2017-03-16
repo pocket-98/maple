@@ -8,6 +8,8 @@ v(t):=solve(sol,y);
 
 initial1:=eval(y,t=0)=4:
 initial2:=eval(y1,t=0)=2:
-C:=solve([initial1,initial2]);
+C:=solve([initial1,initial2]):
 
 v(t):=eval(v(t),C);
+y1;
+y2;

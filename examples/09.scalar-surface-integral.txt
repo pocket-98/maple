@@ -8,7 +8,7 @@ dS:=crossprod(ru,rv):
 dS:=simplify(sqrt(innerprod(dS,dS)));
 
 f:=x^2*y*z:
-f:=eval(f,[x=r[1]),y=r[2],z=r[3]]);
+f:=eval(f,[x=r[1],y=r[2],z=r[3]]);
 
-a:=int(f*dS,[v=0..2,u=0..3]);
-evalf(a,20);
+surfint:=int(f*dS,[v=0..2,u=0..3]);
+evalf(surfint,20);
