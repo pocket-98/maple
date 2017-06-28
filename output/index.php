@@ -64,8 +64,8 @@ foreach($inputs as $line){
   }
 }
 
-$cmd = "export HOME=/var/www; echo '$inputstring' | ";
-$cmd .= "/usr/local/bin/cmaple -q -T 15,200000 -t";
+$home = posix_getpwuid(posix_getuid())["dir"];
+$cmd = "echo '$inputstring' | HOME=$home cmaple -q -T 15,200000 -t";
 $output = shell_exec($cmd);
 $output2 = explode("\n", $output);
 $output3 = array();
