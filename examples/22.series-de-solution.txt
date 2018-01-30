@@ -1,0 +1,18 @@
+y:=v(t):
+y1:=diff(y,t):
+y2:=diff(y1,t):
+
+Order:=8:
+de:= y2 + (1-t)*y1 + 2*y = exp(t):
+sol:=collect(convert(dsolve([de, v(0)=a, D(v)(0)=b], y, series), polynom), [a,b]):
+v(t):=solve(sol,y);
+
+initial1:=eval(y,t=0)=-5:
+initial2:=eval(y1,t=0)=1:
+
+C:=solve([initial1,initial2]):
+
+v(t):=simplify(eval(v(t),C));
+y1;
+y2;
+
