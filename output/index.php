@@ -17,12 +17,13 @@
           <div class="col-xs-10 col-sm-8 col-md-6">
             <form id="form" action="../" method="post">
               <textarea name="input" style="display: none;"><?php
+$input = "";
 if (isset($_GET['input']) && strlen($_GET['input']) > 0) {
   $input = $_GET['input'];
 } else {
   $input = $_POST['input'];
 }
-echo "" . $input . "";
+echo($input);
             ?></textarea>
             </form>
             <div class="button" onclick="document.getElementById('form').submit()">
@@ -91,8 +92,8 @@ for ($i = 0; $i < count($inputs2); $i++) {
   $in = $inputs2[$i];
   $out = $output3[$i];
 
-  if (strpos($in, "exportplot(") !== false) {
-    foreach (explode("xportplot", $in) as $inline) {
+  if (strpos($in, "exportplot") !== false) {
+    foreach (explode("exportplot", $in) as $inline) {
       if (strpos($inline, '"') !== false) {
         $inlineparts = explode('"', $inline);
         for ($j = 0; $j < count($inlineparts); $j++) {
@@ -107,12 +108,12 @@ for ($i = 0; $i < count($inputs2); $i++) {
   }
 
   if (strcmp(trim($in),"") != 0) {
-    echo '<pre class="input">>> ' . $in . ";</pre>\n";
-    echo '<pre class="output">';
+    echo('<pre class="input">>> ' . $in . ";</pre>\n");
+    echo('<pre class="output">');
     foreach ($out as $outline) {
       echo $outline;
     }
-    echo "</pre>\n";
+    echo("</pre>\n");
   }
 }
 
