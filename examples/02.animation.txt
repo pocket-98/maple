@@ -1,0 +1,9 @@
+r:=[cos(t),sin(t)];
+xrange:=-2..2;
+yrange:=-1.4..1.4;
+
+with(plots):
+anim:=animate(plot,[[r[1],r[2],t=0..s],xrange,yrange],s=0..2*Pi,frames=200):
+
+with(plottools):
+exportplot("plots/anim.gif",anim);

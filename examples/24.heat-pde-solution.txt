@@ -1,0 +1,13 @@
+y:=u(x,t):
+ut:=diff(y,t):
+uxx:=diff(y,x,x):
+
+k:=1;
+
+bnd1:=u(0,t)=0;
+bnd2:=u(1,t)=0;
+init1:=u(x,0)=100;
+
+de:=ut=k*uxx;
+sol:=pdsolve([de,init1,bnd1,bnd2],y);
+u(x,t):=solve(sol,y);
