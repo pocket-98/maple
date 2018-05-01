@@ -1,9 +1,9 @@
-r:=[cos(t),sin(t)];
-xrange:=-2..2;
-yrange:=-1.4..1.4;
+f:=1/2*exp(-20*x^2);
+alpha_n:=BesselJZeros(0,n);
+a_n:=2/BesselJ(1,alpha_n)^2*int(f*BesselJ(0,alpha_n*x)*x,x=0..1);
+u:=sum(evalf(a_n*cos(alpha_n*t)*BesselJ(0,alpha_n*r)),n=1..15);
 
-with(plots):
-anim:=animate(plot,[[r[1],r[2],t=0..s],xrange,yrange],s=0..2*Pi,frames=200):
+opts:=(r=0..1,theta=0..2*Pi,orientation=[-60,50],labels=[x,y,"u"],shading=zhue,grid=[60,60]);
+plt:=plots[animate](plot3d,[[r*cos(theta),r*sin(theta),u],opts],t=0..2.1,frames=50):
 
-with(plottools):
-exportplot("plots/anim.gif",anim);
+plottools[exportplot]("plots/plot.gif",plt,width=1200,height=900);
