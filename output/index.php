@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>Maple Script Executed</title>
     <link rel="stylesheet" type="text/css" href="../bootstrap.min.css">

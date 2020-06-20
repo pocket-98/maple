@@ -1,0 +1,37 @@
+<?php
+
+// call script from newyork and print output here
+$input = "";
+if (isset($_GET['input']) && strlen($_GET['input']) > 0) {
+    $input = $_GET['input'];
+} else if (isset($_POST['input'])) {
+    $input = $_POST['input'];
+}
+
+$url = "https://pavandayal.com/maple/output/";
+$curl = curl_init($url);
+curl_setopt($curl, CURLOPT_SSL_VERIFYPEER, false);
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, array("input" => $input));
+curl_setopt($curl, CURLOPT_FOLLOWLOCATION, true);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_HEADER, 0);
+$resp = curl_exec($curl);
+echo($resp);
+
+// download generated plots
+$search = '/\<a.+?href=' . "'(.+)'" . '/i';
+if (preg_match($search, $resp, $links, PREG_OFFSET_CAPTURE)) {
+    $first = true;
+    foreach ($links as $a) {
+        if ($first) {
+            $first = false;
+        } else {
+            $link = $a[0];
+            //echo("lonk: $link\n");
+            file_put_contents($link, file_get_contents($url . $link));
+        }
+    }
+}
+?>
+

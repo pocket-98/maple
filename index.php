@@ -1,5 +1,6 @@
 <html>
   <head>
+    <meta charset="utf-8"/>
     <meta name="viewport" content="width=device-width, user-scalable=no">
     <title>Maple</title>
     <script type="text/javascript" src="jquery.min.js"></script>
@@ -13,7 +14,6 @@ $spaces = "\n      ";
 echo $spaces . "var scripts = {";
 
 $names = explode(" ", exec("echo $(ls examples/*txt | cut -d '.' -f 2)"));
-
 
 for ($i = 1; $i <= count($names); $i++) {
   $file = "examples/";
