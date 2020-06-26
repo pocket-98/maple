@@ -9,15 +9,16 @@
   </head>
   <body>
     <div class="container" style="margin: 0 auto">
-      <div class="col-xs-0 col-md-1 col-lg-2"></div>
-      <div id="page" class="col-xs-12 col-md-10 col-lg-8">
+      <div class="col-0 col-lg-1"></div>
+      <div id="page" class="col-12 col-lg-10">
         <h1 id="title">Maple Script Executed</h1>
         <hr/>
         <div class="container-fluid">
-          <div class="col-xs-1 col-sm-2 col-md-3"></div>
-          <div class="col-xs-10 col-sm-8 col-md-6">
-            <form id="form" action="../" method="post">
-              <textarea name="input" style="display: none;"><?php
+          <div class="row">
+            <div class="col-0 col-md-1 col-lg-2"></div>
+            <div class="col-12 col-md-10 col-lg-8">
+              <form id="form" action="../" method="post">
+                <textarea name="input" style="display: none;"><?php
 $input = "";
 if (isset($_GET['input']) && strlen($_GET['input']) > 0) {
   $input = $_GET['input'];
@@ -25,13 +26,14 @@ if (isset($_GET['input']) && strlen($_GET['input']) > 0) {
   $input = $_POST['input'];
 }
 echo($input);
-            ?></textarea>
-            </form>
-            <div class="button" onclick="document.getElementById('form').submit()">
-              <div>Edit Script</div>
+              ?></textarea>
+              </form>
+              <div class="button" onclick="document.getElementById('form').submit()">
+                <div>Edit Script</div>
+              </div>
             </div>
+            <div class="col-0 col-md-1 col-lg-2"></div>
           </div>
-          <div class="col-xs-1 col-sm-2 col-md-6"></div>
         </div>
         <hr/>
 
@@ -121,7 +123,7 @@ for ($i = 0; $i < count($inputs2); $i++) {
 ?>
 
       </div>
-      <div class="col-xs-0 col-md-1 col-lg-2"></div>
+      <div class="col-xs-0 col-lg-1"></div>
     </div>
   </body>
 </html>

@@ -41,26 +41,27 @@ echo $spaces . "}";
       <div class="modal-dialog modal-lg" role="document">
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
             <h4 class="modal-title">Example Scripts</h4>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true">&times;</span>
+            </button>
           </div>
           <div class="modal-body container-fluid"><?php
 
 $spaces = "\n            ";
-echo $spaces . '<div class="col-xs-0"></div>';
-echo $spaces . '<div class="col-xs-12">';
+echo $spaces . '<div class="col-0"></div>';
+echo $spaces . '<div class="col-12">';
 echo "$spaces";
-echo '  <div class="container-fluid">';
+echo '  <div class="container-fluid"><div class="row">';
 echo "$spaces";
 for ($i = 1; $i <= count($names); $i++) {
-	echo '    <div class="col-sm-6 col-md-4">' . $spaces;
+	echo '    <div class="col-12 col-sm-6 col-md-4">' . $spaces;
 	echo '      <div class="button" data-dismiss="modal" onclick="loadExample(';
-	echo  $i . ')"><div>' . $names[$i-1];
-	echo "</div></div>$spaces";
-  echo "    </div>$spaces";
+	echo  $i . ')"><div>' . $names[$i-1]. "</div></div>$spaces";
+    echo "    </div>$spaces";
 }
-echo "  </div>$spaces</div>$spaces";
-echo '<div class="col-xs-0"></div>' . "\n";
+echo "  </div></div>$spaces</div>$spaces";
+echo '<div class="col-0"></div>' . "\n";
 ?>
           </div>
           <div class="modal-footer">
@@ -71,13 +72,13 @@ echo '<div class="col-xs-0"></div>' . "\n";
     </div>
 
     <div class="container" style="margin: 0 auto">
-      <div class="col-xs-0 col-sm-1 col-md-2"></div>
-      <div id="page" class="col-xs-12 col-sm-10 col-md-8">
+      <div class="col-0 col-sm-1 col-md-2"></div>
+      <div id="page" class="col-12 col-sm-10 col-md-8">
         <h1 id="title">Maple</h1>
         <form id="form" action="output/" method="post">
           <div class="container-fluid">
             <div class="row">
-              <div class="col-xs-12">
+              <div class="col-12">
                 <textarea id="input" name="input" placeholder="Enter Maple Commands"><?php
 if (isset($_GET['input']) && strlen($_GET['input']) > 0) {
   echo $_GET['input'];
@@ -88,12 +89,12 @@ if (isset($_GET['input']) && strlen($_GET['input']) > 0) {
               </div>
             </div>
             <div class="row">
-              <div class="col-xs-6">
+              <div class="col-6">
                 <div class="button" data-toggle="modal" data-target="#examples-modal">
                   <div>Load Example</div>
                 </div>
               </div>
-              <div class="col-xs-6">
+              <div class="col-6">
                 <div class="button" onclick="document.getElementById('form').submit()">
                   <div>Run Script</div>
                 </div>
@@ -102,7 +103,7 @@ if (isset($_GET['input']) && strlen($_GET['input']) > 0) {
           </div>
         </form>
       </div>
-      <div class="col-xs-0 col-sm-1 col-md-2"></div>
+      <div class="col-0 col-sm-1 col-md-2"></div>
     </div>
 
   </body>
